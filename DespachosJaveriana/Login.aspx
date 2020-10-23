@@ -8,7 +8,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            width: 50%;
         }
     </style>
 </head>
@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:LinkButton ID="LinkButton1" runat="server">Registro</asp:LinkButton>
+                        <asp:LinkButton ID="lbRegistro" runat="server" OnClick="lbRegistro_Click">Registro</asp:LinkButton>
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Entrar" />

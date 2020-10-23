@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DespachosDataLayer" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DataSourceSQL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">turing.database.windows.net</Value>
+    </Setting>
+    <Setting Name="DataBaseNameSQL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">despachos</Value>
+    </Setting>
+    <Setting Name="UserIDSQL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">aesoftware</Value>
+    </Setting>
+    <Setting Name="PasswordSQL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">artifactS20</Value>
+    </Setting>
+    <Setting Name="TimeOutConnectionSQL" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
