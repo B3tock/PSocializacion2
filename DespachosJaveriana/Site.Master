@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,7 +13,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,6 +38,35 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+
+        <div class="wrapper">
+            <div class="sideBar" id="sidebar">
+                <asp:Menu ID="MenuFactory" runat="server" CssClass="sideNav">
+                    <StaticMenuStyle CssClass="sideNav" />
+                    <Items>
+                        <asp:MenuItem Text="Despacho" Value="Despacho">
+                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Despacho/FormDespacho.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Cotización" Value="Cotización">
+                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Cotizacion/FormCotizacion.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Catálogo" Value="Catalogo">
+                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Catalogo/FormCatalogo.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                    <LevelMenuItemStyles>
+                        <asp:MenuItemStyle CssClass="ItemMenu" />
+                    </LevelMenuItemStyles>
+                    <DataBindings>
+                        <asp:MenuItemBinding DataMember="siteMapNode"
+                            NavigateUrlField="url" TextField="description" SelectableField="selectable" />
+                    </DataBindings>
+                </asp:Menu>
+            </div>
+        </div>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">

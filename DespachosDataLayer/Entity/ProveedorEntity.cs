@@ -6,6 +6,6 @@ namespace DespachosDataLayer.Entity
 {
     public class ProveedorEntity : UsuarioEntity
     {     
-        public string direccion { get; set; }        
+        public string tipoSociedad { get; set; }
     }
 }

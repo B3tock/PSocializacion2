@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormRegistroClientes.aspx.cs" Inherits="DespachosJaveriana.FormRegistroClientes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormRegistro.aspx.cs" Inherits="DespachosJaveriana.FormRegistro" %>
 
 <!DOCTYPE html>
 
@@ -47,6 +47,14 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:Label ID="Label10" runat="server" Text="Dirección"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txbDireccion" runat="server" MaxLength="255" Width="200px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <asp:Label ID="Label4" runat="server" Text="Razón Social"></asp:Label>
                     </td>
                     <td>
@@ -66,7 +74,7 @@
                         <asp:Label ID="Label9" runat="server" Text="Contraseña"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txbContrasenia" runat="server" MaxLength="50" Width="200px"></asp:TextBox>
+                        <asp:TextBox ID="txbContrasenia" runat="server" MaxLength="50" Width="200px" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

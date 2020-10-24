@@ -16,5 +16,7 @@ namespace DespachosDataLayer.Entity
         public string telefono { get; set; }
         public string correo { get; set; }
         public string sitioWeb { get; set; }
+        public string direccion { get; set; }
+        public bool estado { get; set; }
     }
 }

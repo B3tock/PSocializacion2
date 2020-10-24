@@ -116,15 +116,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Catalogo\FormCatalogo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Cotizacion\FormCotizacion.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Despacho\FormDespacho.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+<<<<<<< Updated upstream
+=======
+    <Content Include="FormRegistro.aspx" />
+>>>>>>> Stashed changes
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -135,7 +142,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+<<<<<<< Updated upstream
     <Content Include="PubSub\PubSub.asmx" />
+=======
+    <Content Include="Login.aspx" />
+    <Content Include="ResetPassword.aspx" />
+>>>>>>> Stashed changes
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -180,12 +192,26 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Catalogo\FormCatalogo.aspx.cs">
+      <DependentUpon>FormCatalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo\FormCatalogo.aspx.designer.cs">
+      <DependentUpon>FormCatalogo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizacion\FormCotizacion.aspx.cs">
+      <DependentUpon>FormCotizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\FormCotizacion.aspx.designer.cs">
+      <DependentUpon>FormCotizacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -194,13 +220,39 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Despacho\FormDespacho.aspx.cs">
+      <DependentUpon>FormDespacho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Despacho\FormDespacho.aspx.designer.cs">
+      <DependentUpon>FormDespacho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistro.aspx.cs">
+      <DependentUpon>FormRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormRegistro.aspx.designer.cs">
+      <DependentUpon>FormRegistro.aspx</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< Updated upstream
     <Compile Include="PubSub\PubSub.asmx.cs">
       <DependentUpon>PubSub.asmx</DependentUpon>
       <SubType>Component</SubType>
+=======
+    <Compile Include="ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+>>>>>>> Stashed changes
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

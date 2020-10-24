@@ -90,5 +90,46 @@ namespace DespachosDataLayer.Access
             }
             return idusuario;
         }
+
+        public ClientesEntity Loginusuario (ClientesEntity entidad)
+        {            
+            List<SqlParameter> listParameter = new List<SqlParameter>();
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@LOGIN",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.login
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@PASSWORD",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.password
+            });
+
+            ClientesEntity result = new ClientesEntity();
+            try
+            {
+                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_LOGIN_USUARIO", listParameter);
+                foreach(DataRow row in resultado.Tables[0].Rows)
+                {
+                    result.codigo = Convert.ToInt32(row["ID_USUARIO"]);
+                    result.login = row["LOGIN"].ToString();
+                    result.password = row["PASSWORD"].ToString();
+                    result.estado = Convert.ToBoolean(row["ESTADO"]);
+                    result.fechaCreacion = Convert.ToDateTime(row["FECHA_CREACION"]);
+                    result.tipoUsuario = row["TIPO_USUARIO"].ToString();
+                    break;
+                }
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+
+            return result;
+        }
     }
 }

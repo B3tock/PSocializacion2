@@ -15,5 +15,11 @@ namespace DespachosBusinessLayer.Business
             long resultado = usuarioDataAccess.InsertarClientes(entidad);
             return resultado;
         }
+
+        public ClientesEntity Loginusuario(ClientesEntity entidad)
+        {
+            ClientesEntity resultado = usuarioDataAccess.Loginusuario(entidad);
+            return resultado;
+        }
     }
 }
