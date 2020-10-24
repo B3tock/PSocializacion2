@@ -11,6 +11,7 @@ namespace DespachosJaveriana
 {
     public class Global : HttpApplication
     {
+        public static string AUTHENTICATION_KEY = "User";
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación
