@@ -13,7 +13,7 @@ namespace DespachosJaveriana
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Response.Redirect("FormRegistro.aspx");
         }
 
         protected void lbRegistro_Click(object sender, EventArgs e)

@@ -137,6 +137,7 @@
     <Content Include="Cotizacion\FormCotizacion.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Despacho\FormDespacho.aspx" />
+    <Content Include="Estadisticas\FormEstadisticas.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormRegistro.aspx" />
@@ -231,6 +232,13 @@
     <Compile Include="Despacho\FormDespacho.aspx.designer.cs">
       <DependentUpon>FormDespacho.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Estadisticas\FormEstadisticas.aspx.cs">
+      <DependentUpon>FormEstadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\FormEstadisticas.aspx.designer.cs">
+      <DependentUpon>FormEstadisticas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormRegistro.aspx.cs">
       <DependentUpon>FormRegistro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -265,12 +273,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
