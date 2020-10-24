@@ -11,7 +11,7 @@ namespace DespachosDataLayer.Access
 {
     public class UsuarioDataAccess : SQLDALAdapter
     {
-        public long InsertarClientes(ClientesEntity entidad)
+        public int InsertarClientes(ClientesEntity entidad)
         {
             List<SqlParameter> listParameter = new List<SqlParameter>();
 
@@ -48,6 +48,13 @@ namespace DespachosDataLayer.Access
                 ParameterName = "@NOMBRE",
                 SqlDbType = SqlDbType.VarChar,
                 Value = entidad.nombre
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@DIRECCION",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.direccion
             });
 
             listParameter.Add(new SqlParameter
@@ -115,12 +122,12 @@ namespace DespachosDataLayer.Access
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_LOGIN_USUARIO", listParameter);
                 foreach(DataRow row in resultado.Tables[0].Rows)
                 {
-                    result.codigo = Convert.ToInt32(row["ID_USUARIO"]);
+                    result.codigo = Convert.ToInt32(row["CODIGO"]);
                     result.login = row["LOGIN"].ToString();
                     result.password = row["PASSWORD"].ToString();
                     result.estado = Convert.ToBoolean(row["ESTADO"]);
                     result.fechaCreacion = Convert.ToDateTime(row["FECHA_CREACION"]);
-                    result.tipoUsuario = row["TIPO_USUARIO"].ToString();
+                    result.tipoUsuario = row["TIPO_USUARIO"].ToString();                    
                     break;
                 }
             }

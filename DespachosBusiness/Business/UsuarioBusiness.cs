@@ -10,9 +10,9 @@ namespace DespachosBusinessLayer.Business
     {
         UsuarioDataAccess usuarioDataAccess = new UsuarioDataAccess();
 
-        public long InsertarClientes(ClientesEntity entidad)
+        public int InsertarClientes(ClientesEntity entidad)
         {
-            long resultado = usuarioDataAccess.InsertarClientes(entidad);
+            int resultado = usuarioDataAccess.InsertarClientes(entidad);
             return resultado;
         }
 

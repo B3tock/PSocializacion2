@@ -13,4 +13,8 @@
     <ProjectReference Include="..\DespachosDataLayer\DespachosDataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Negocio\" />
+  </ItemGroup>
+
 </Project>

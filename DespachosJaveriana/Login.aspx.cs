@@ -38,13 +38,17 @@ namespace DespachosJaveriana
                 cliente.password = txbContrasenia.Text.Trim();
 
                 cliente = negocio.Loginusuario(cliente);
+                Session.Add(Global.AUTHENTICATION_KEY, cliente);
                 if (cliente.login == txbUsuario.Text.Trim())
                 {
-                    Response.Redirect("Default.aspx");
+                    //Response.Redirect("Default.aspx");
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dza", "<script type='text/javascript'>window.location='" + ResolveUrl("Default.aspx") + "';</script>", false);
                 }
                 else
                 {
                     lbMensaje.Text = "Acceso no autorizado!!!";
+                    string message = "Usuario no autenticado intente de nuevo";
+                    this.Page.ClientScript.RegisterStartupScript(GetType(), "", "<script type='text/javascript'>myfunction('" + message + "');</script>", false);
                 }
             }
             catch (Exception exc)
