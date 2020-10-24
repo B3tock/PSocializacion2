@@ -13,6 +13,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txbNombre" runat="server" Width="200px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbNombre"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -29,6 +30,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txbPrecio" runat="server" Width="200px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbPrecio"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -56,10 +58,15 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CausesValidation="False" />
             </td>
             <td>
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <asp:Label ID="lblMensajeCatalogo" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
     </table>
