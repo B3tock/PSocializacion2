@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublisherSubscriber.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,31 +8,32 @@ using System.Web.Http;
 
 namespace PublisherSubscriber.Controllers
 {
-    public class ValuesController : ApiController
+    public class PublishController : ApiController
     {
-        // GET api/values
+        // GET: api/Publish
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET: api/Publish/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
-        public void Post([FromBody] string value)
+        // POST: api/Publish
+        public RequestPub Post([FromBody] RequestPub requestPub)
+        {
+            return requestPub;
+        }
+
+        // PUT: api/Publish/5
+        public void Put(int id, [FromBody]string value)
         {
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
+        // DELETE: api/Publish/5
         public void Delete(int id)
         {
         }
