@@ -15,5 +15,19 @@ namespace DespachosBusinessLayer.Business
             int result = catalogoDataAccess.InsertarCatalogos(entidad);
             return result;
         }
+        public List<CatalogoServicioEntity> ConsultarCatalogos()
+        {
+            List<CatalogoServicioEntity> result = catalogoDataAccess.ConsultarCatalogos();
+            return result;
+        }
+        public CatalogoServicioEntity ConsultarCatalogoPorID(int codigo)
+        {
+            CatalogoServicioEntity result = catalogoDataAccess.ConsultarCatalogoPorID(codigo);
+            return result;
+        }
+        public void ActualizarCatalogo(CatalogoServicioEntity entidad)
+        {
+            catalogoDataAccess.ActualizarCatalogo(entidad);
+        }
     }
 }
