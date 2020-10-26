@@ -19,6 +19,7 @@
         </td>
         <td>
             <asp:TextBox ID="txbDireccionOrigen" runat="server" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbDireccionOrigen" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -27,6 +28,7 @@
         </td>
         <td>
             <asp:TextBox ID="txbDireccionDestino" runat="server" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbDireccionDestino" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -44,6 +46,7 @@
         <td>
             <asp:DropDownList ID="ddlClientes" runat="server">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlClientes" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -51,7 +54,7 @@
             <asp:Label ID="Label7" runat="server" Text="Estado"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="TextBox6" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbEstado" runat="server" Width="200px"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -59,7 +62,8 @@
             <asp:Label ID="Label8" runat="server" Text="Peso"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="TextBox7" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbPeso" runat="server" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbPeso" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -67,7 +71,7 @@
             <asp:Label ID="Label9" runat="server" Text="Volumen"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="TextBox8" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbVolumen" runat="server" Width="200px"></asp:TextBox>
         </td>
     </tr>
     <tr>

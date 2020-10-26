@@ -12,7 +12,8 @@
                 <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox1" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txbNombre" runat="server" Width="200px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbNombre"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -20,7 +21,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Descripción"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox2" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txbDescripcion" runat="server" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -28,7 +29,8 @@
                 <asp:Label ID="Label3" runat="server" Text="Precio"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox3" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txbPrecio" runat="server" Width="200px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbPrecio"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -36,7 +38,14 @@
                 <asp:Label ID="Label4" runat="server" Text="Estado"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox4" runat="server" Width="200px"></asp:TextBox>
+                <asp:DropDownList ID="ddlEstado" runat="server">
+                    <asp:ListItem Selected="True">Seleccione</asp:ListItem>
+                    <asp:ListItem>Activo</asp:ListItem>
+                    <asp:ListItem>Inactivo</asp:ListItem>
+                    <asp:ListItem>Procesado</asp:ListItem>
+                    <asp:ListItem>Anulado</asp:ListItem>
+                    <asp:ListItem>Pendiente</asp:ListItem>
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -44,15 +53,20 @@
                 <asp:Label ID="Label5" runat="server" Text="Categoría"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox5" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txbCategoria" runat="server" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CausesValidation="False" />
             </td>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <asp:Label ID="lblMensajeCatalogo" runat="server" ForeColor="Red"></asp:Label>
             </td>
         </tr>
     </table>
