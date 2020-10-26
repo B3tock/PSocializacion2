@@ -8,7 +8,7 @@ namespace PublisherSubscriber.Models
 
     public class RequestSub
     {
-        public string Codigo_proveedor { get; set; }
+        public int Codigo_proveedor { get; set; }
         public string Url_Proveedor { get; set; }
 
     }

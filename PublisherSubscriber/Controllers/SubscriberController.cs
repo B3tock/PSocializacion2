@@ -15,7 +15,6 @@ namespace PublisherSubscriber.Controllers
     public class SubscriberController : ApiController
     {
 
-        public Publisher pub = new Publisher();
         // GET api/Subscriber
         //public IEnumerable<Publisher> Get()
         public string  Get()
@@ -30,35 +29,33 @@ namespace PublisherSubscriber.Controllers
         }
 
 // POST api/Subscriber
-        public RequestSub Post([FromBody] RequestSub requestSub)
+        public string Post([FromBody] RequestSub requestSub)
         {
-            Subscriber sub = new Subscriber();
-            pub.Codigo = requestSub.Codigo_proveedor;
-            pub.URL = requestSub.Url_Proveedor;
-            sub.Subscribe(pub);
-            return requestSub;
-            //Publisher pub1 = new Publisher();
-            //pub1.Na------------------------------------me = "Pub";
-            //Subscriber sub1 = new Subscriber();
-            //Subscriber sub2 = new Subscriber();
-            //Subscriber sub3 = new Subscriber();
-            //
-            //sub1.Subscribe(pub1);
-            //sub2.Subscribe(pub1);
-            //sub3.Subscribe(pub1);
-            //
-            //pub1.Notify("This is First Message");
-            //sub2.UnSubscribe(pub1);
-            //
-            //pub1.Notify("This Message will not show up for sub2");
-            //return "funciona";
+            ProveedoresMd pmd = new ProveedoresMd();
+
+            pmd.Codigo = requestSub.Codigo_proveedor;
+            pmd.Url_Consumo = requestSub.Url_Proveedor;
+
+            CorePOSApi.Business.Data.context.DataModelService da = new CorePOSApi.Business.Data.context.DataModelService();
+
+            da.ExecuteNonQueryModel<Models.ProveedoresMd>("dbo.SP_UPDATE_PROVEEDORES_URL", pmd);
+            return "Subscripción realizada con éxito";
 
         }
 
         // PUT api/Subscriber/5
-        public void Put(int id, [FromBody] string value)
+        public string Put(int id, [FromBody] RequestSub requestSub)
         {
-            Publisher pub = new Publisher();
+            ProveedoresMd pmd = new ProveedoresMd();
+
+            pmd.Codigo = requestSub.Codigo_proveedor;
+            pmd.Url_Consumo = "";
+
+            CorePOSApi.Business.Data.context.DataModelService da = new CorePOSApi.Business.Data.context.DataModelService();
+
+            da.ExecuteNonQueryModel<Models.ProveedoresMd>("dbo.SP_UPDATE_PROVEEDORES_URL", pmd);
+            return "Subscripción cancelada";
+
         }
 
         // DELETE api/Subscriber/5
