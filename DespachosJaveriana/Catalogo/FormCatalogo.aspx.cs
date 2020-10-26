@@ -23,7 +23,7 @@ namespace DespachosJaveriana.Catalogo
             {
                 CatalogoServicioEntity catalogoServicioEntity = new CatalogoServicioEntity();
                 catalogoServicioEntity.nombre = txbNombre.Text.Trim();
-                catalogoServicioEntity.descricpion = txbDescripcion.Text.Trim();
+                catalogoServicioEntity.descripcion = txbDescripcion.Text.Trim();
                 catalogoServicioEntity.precio = float.Parse(txbPrecio.Text.Trim());
                 catalogoServicioEntity.estado = ddlEstado.SelectedValue;
                 catalogoServicioEntity.categoria = txbCategoria.Text.Trim();
