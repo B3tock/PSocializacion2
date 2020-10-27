@@ -13,5 +13,9 @@ namespace DespachosDataLayer.Entity
         public string descripcion { get; set; }
         public string estado { get; set; }
         public int codigoDespacho { get; set; }
+        public string nombreCatalogo { get; internal set; }
+        public string direccionOrigen { get; internal set; }
+        public string direccionDestino { get; internal set; }
+        public string proveedor { get; internal set; }
     }
 }

@@ -18,7 +18,7 @@
             <asp:Label ID="Label3" runat="server" Text="Dirección Origen"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txbDireccionOrigen" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbDireccionOrigen" runat="server" Width="200px" MaxLength="255"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbDireccionOrigen" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
@@ -27,7 +27,7 @@
             <asp:Label ID="Label4" runat="server" Text="Dirección Destino"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txbDireccionDestino" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbDireccionDestino" runat="server" Width="200px" MaxLength="255"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbDireccionDestino" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
@@ -36,7 +36,8 @@
             <asp:Label ID="Label5" runat="server" Text="Observaciones"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txbObservaciones" runat="server" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txbObservaciones" runat="server" Width="200px" MaxLength="255" TextMode="MultiLine"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbObservaciones" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -44,7 +45,7 @@
             <asp:Label ID="Label6" runat="server" Text="Cliente"></asp:Label>
         </td>
         <td>
-            <asp:DropDownList ID="ddlClientes" runat="server">
+            <asp:DropDownList ID="ddlClientes" runat="server" Width="200px">
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlClientes" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
@@ -54,7 +55,9 @@
             <asp:Label ID="Label7" runat="server" Text="Estado"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txbEstado" runat="server" Width="200px"></asp:TextBox>
+            <asp:DropDownList ID="ddlEstado" runat="server" Width="200px">
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlEstado" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -72,6 +75,7 @@
         </td>
         <td>
             <asp:TextBox ID="txbVolumen" runat="server" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbVolumen" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>

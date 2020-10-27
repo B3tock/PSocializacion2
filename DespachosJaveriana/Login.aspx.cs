@@ -18,12 +18,12 @@ namespace DespachosJaveriana
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Redirect("FormRegistro.aspx");
+            
         }
 
         protected void lbRegistro_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("FormRegistro.aspx");
+        {            
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dza", "<script type='text/javascript'>window.location='" + ResolveUrl("FormRegistro.aspx") + "';</script>", false);
         }
 
         protected void btnEntrar_Click(object sender, EventArgs e)
@@ -40,8 +40,7 @@ namespace DespachosJaveriana
                 cliente = negocio.Loginusuario(cliente);
                 Session.Add(Global.AUTHENTICATION_KEY, cliente);
                 if (cliente.login == txbUsuario.Text.Trim())
-                {
-                    //Response.Redirect("Default.aspx");
+                {                    
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dza", "<script type='text/javascript'>window.location='" + ResolveUrl("Default.aspx") + "';</script>", false);
                 }
                 else
@@ -58,8 +57,8 @@ namespace DespachosJaveriana
         }
 
         protected void lbReset_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ResetPassword.aspx");
+        {            
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dza", "<script type='text/javascript'>window.location='" + ResolveUrl("ResetPassword.aspx") + "';</script>", false);
         }
     }
 }

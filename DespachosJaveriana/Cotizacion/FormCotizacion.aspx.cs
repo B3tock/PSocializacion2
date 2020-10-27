@@ -19,8 +19,7 @@ namespace DespachosJaveriana.Cotizacion
             if (!IsPostBack)
             {
                 gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
-                gridCotizaciones.DataBind();
-                MultiView1.ActiveViewIndex = 0;
+                gridCotizaciones.DataBind();                
             }
         }
 
@@ -76,8 +75,7 @@ namespace DespachosJaveriana.Cotizacion
 
         private void LimpiarControles()
         {
-            lblCodigo.Text = string.Empty;
-            lblMensajeCotizacion.Text = string.Empty;
+            lblCodigo.Text = string.Empty;            
             txbPrecio.Text = string.Empty;
             ddlCatalogo.SelectedIndex = 0;
             txbDescripcion.Text = string.Empty;
@@ -87,7 +85,28 @@ namespace DespachosJaveriana.Cotizacion
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
+            gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
+            gridCotizaciones.DataBind();
             MultiView1.ActiveViewIndex = 0;
+        }
+
+        protected void gridCotizaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblCodigo.Text = gridCotizaciones.SelectedRow.Cells[0].Text;
+            int codigo = 0;
+            if (!string.IsNullOrEmpty(lblCodigo.Text))
+                codigo = Convert.ToInt32(lblCodigo.Text);
+
+            CotizacionEntity entidad = new CotizacionEntity();
+            entidad = cotizacionBusiness.ConsultarCotizacionPorID(codigo);
+                        
+            txbPrecio.Text = entidad.precio.ToString();
+            ddlCatalogo.SelectedValue = entidad.codigoCatalogo.ToString();
+            txbDescripcion.Text = entidad.descripcion;
+            ddlEstado.SelectedValue = entidad.estado;
+            ddlDespacho.SelectedValue = entidad.codigoDespacho.ToString();
+
+            MultiView1.ActiveViewIndex = 1;            
         }
     }
 }

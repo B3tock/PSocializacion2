@@ -50,7 +50,7 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Catálogo" Value="Catalogo" NavigateUrl="~/Catalogo/FormCatalogo.aspx">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Estadísticas" Value="Estadísticas"></asp:MenuItem>
+                        <asp:MenuItem Text="Estadísticas" Value="Estadísticas" NavigateUrl="~/Estadisticas/FormEstadisticas.aspx"></asp:MenuItem>
                     </Items>
                     <LevelMenuItemStyles>
                         <asp:MenuItemStyle CssClass="ItemMenu" />

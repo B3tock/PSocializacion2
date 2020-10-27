@@ -27,6 +27,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbNit" runat="server" MaxLength="20" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbNit" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -35,6 +36,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbNombre" runat="server" MaxLength="255" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbNombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -43,6 +45,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbTelefono" runat="server" MaxLength="20" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefono" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -51,6 +54,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbDireccion" runat="server" MaxLength="255" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbDireccion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -59,6 +63,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbRazonSocial" runat="server" MaxLength="255" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbRazonSocial" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -67,6 +72,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbCorreo" runat="server" MaxLength="50" Width="200px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbCorreo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -75,6 +81,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txbContrasenia" runat="server" MaxLength="50" Width="200px" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txbContrasenia" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -90,16 +97,23 @@
                         <asp:Label ID="Label8" runat="server" Text="Tipo de Usuario"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlTipoUsuario" runat="server">
-                            <asp:ListItem Selected="True">Seleccione Tipo</asp:ListItem>
+                        <asp:DropDownList ID="ddlTipoUsuario" runat="server" Width="200px">
+                            <asp:ListItem Selected="True"></asp:ListItem>
                             <asp:ListItem>Cliente</asp:ListItem>
                             <asp:ListItem>Proveedor</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlTipoUsuario" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
                         <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:LinkButton ID="lbIrLogin" runat="server" CausesValidation="False" OnClick="lbIrLogin_Click" Visible="False">Login</asp:LinkButton>
                     </td>
                 </tr>
             </table>

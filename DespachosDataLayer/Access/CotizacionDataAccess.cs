@@ -27,14 +27,7 @@ namespace DespachosDataLayer.Access
                 ParameterName = "@CODIGO_CATALOGO",
                 SqlDbType = SqlDbType.Int,
                 Value = entidad.codigoCatalogo
-            });
-
-            listParameter.Add(new SqlParameter
-            {
-                ParameterName = "@PRECIO",
-                SqlDbType = SqlDbType.Float,
-                Value = entidad.precio
-            });
+            });          
 
             listParameter.Add(new SqlParameter
             {
@@ -79,13 +72,29 @@ namespace DespachosDataLayer.Access
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
                     CotizacionEntity cotizacion = new CotizacionEntity();
-                    cotizacion.codigo = Convert.ToInt32(row["CODIGO"]);
-                    cotizacion.fecha = Convert.ToDateTime(row["FECHA"]);                    
-                    cotizacion.precio = float.Parse(row["PRECIO"].ToString());
-                    cotizacion.codigoCatalogo = Convert.ToInt32(row["CODIGO_CATALOGO"]);
-                    cotizacion.descripcion = row["DESCRIPCION"].ToString();
-                    cotizacion.estado = row["ESTADO"].ToString();
-                    cotizacion.codigoDespacho = Convert.ToInt32(row["CODIGO_DESPACHO"]);
+                    if (row["CODIGO"] != DBNull.Value)
+                        cotizacion.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["FECHA"] != DBNull.Value)
+                        cotizacion.fecha = Convert.ToDateTime(row["FECHA"]);
+                    if (row["PRECIO"] != DBNull.Value)
+                        cotizacion.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["CODIGO_CATALOGO"] != DBNull.Value)
+                        cotizacion.codigoCatalogo = Convert.ToInt32(row["CODIGO_CATALOGO"]);
+                    if (row["DESCRIPCION"] != DBNull.Value)
+                        cotizacion.descripcion = row["DESCRIPCION"].ToString();
+                    if (row["ESTADO"] != DBNull.Value)
+                        cotizacion.estado = row["ESTADO"].ToString();
+                    if (row["CODIGO_DESPACHO"] != DBNull.Value)
+                        cotizacion.codigoDespacho = Convert.ToInt32(row["CODIGO_DESPACHO"]);
+                    if (row["CATALOGO"] != DBNull.Value)
+                        cotizacion.nombreCatalogo = row["CATALOGO"].ToString();
+                    if (row["DIRECCION_ORIGEN"] != DBNull.Value)
+                        cotizacion.direccionOrigen = row["DIRECCION_ORIGEN"].ToString();
+                    if (row["DIRECCION_DESTINO"] != DBNull.Value)
+                        cotizacion.direccionDestino = row["DIRECCION_DESTINO"].ToString();
+                    if (row["PROVEEDOR"] != DBNull.Value)
+                        cotizacion.proveedor = row["PROVEEDOR"].ToString();
+
                     respuesta.Add(cotizacion);
                 }
             }
