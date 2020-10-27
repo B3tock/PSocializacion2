@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using System.Net.Http.Formatting;
 
 namespace PublisherSubscriber.Controllers
 {
@@ -27,26 +29,26 @@ namespace PublisherSubscriber.Controllers
         public string Post([FromBody] RequestPub requestPub)
         {
             HttpClient clienteHttp = new HttpClient();        
-
-            ProveedoresMd pmd = new ProveedoresMd();
-
-            //pmd.Codigo = requestPub.Codigo_proveedor;
-            //pmd.Url_Consumo = requestPub.Url_Proveedor;
-
+            //Abrir conexion
             CorePOSApi.Business.Data.context.DataModelService da = new CorePOSApi.Business.Data.context.DataModelService();
             string cadena = "SP_CONSULTAR_PROVEEDORES";
             SqlCommand comando = new SqlCommand(cadena, da._connection);
+            //Ejecuto consulta de proveedores
             SqlDataReader registros = comando.ExecuteReader();
             while (registros.Read())
             {
-                clienteHttp.BaseAddress = new Uri(registros["URL_CONSUMO"].ToString());
-                //clienteHttp.PostAsync();
-            //    textBox1.AppendText(registros["codigo"].ToString());
-            //    textBox1.AppendText(" - ");
-            //    textBox1.AppendText(registros["descripcion"].ToString());
-            //    textBox1.AppendText(" - ");
-            //    textBox1.AppendText(registros["precio"].ToString());
-            //    textBox1.AppendText(Environment.NewLine);
+                string url_consumo = registros["URL_CONSUMO"].ToString();
+                if  (url_consumo != "")
+                {
+                    string[] separatingStrings = { "api", "QQQ" };
+
+                    string[] url = url_consumo.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                    // HttpContent httpContent = new StringContent(requestPub, Encoding.UTF8, "application/json");
+                    clienteHttp.BaseAddress = new Uri(url[0]);
+                    var request = clienteHttp.PostAsync("api/" + url[1], requestPub, new JsonMediaTypeFormatter()).Result;
+
+                }
+
             }
             da._connection.Close();
 
