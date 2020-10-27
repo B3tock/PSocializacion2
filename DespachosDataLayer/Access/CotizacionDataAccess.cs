@@ -72,13 +72,13 @@ namespace DespachosDataLayer.Access
         }
         public List<CotizacionEntity> ConsultarCotizaciones()
         {
-            List<CotizacionEntity> respuesta = new List<CotizacionEntity>();
-            CotizacionEntity cotizacion = new CotizacionEntity();
+            List<CotizacionEntity> respuesta = new List<CotizacionEntity>();            
             try
             {
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_COTIZACIONES");
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
+                    CotizacionEntity cotizacion = new CotizacionEntity();
                     cotizacion.codigo = Convert.ToInt32(row["CODIGO"]);
                     cotizacion.fecha = Convert.ToDateTime(row["FECHA"]);                    
                     cotizacion.precio = float.Parse(row["PRECIO"].ToString());
@@ -131,7 +131,7 @@ namespace DespachosDataLayer.Access
 
             return cotizacion;
         }
-        public void ActualizarCotizacion(CotizacionEntity entidad)
+        public int ActualizarCotizacion(CotizacionEntity entidad)
         {
             List<SqlParameter> listParameter = new List<SqlParameter>();
 
@@ -176,15 +176,18 @@ namespace DespachosDataLayer.Access
                 SqlDbType = SqlDbType.VarChar,
                 Value = entidad.codigoDespacho
             });
-
+            
+            int id = 0;
             try
             {
-                GetDataBaseHelper().ExecuteProcedureScalar("SP_ACTUALIZAR_COTIZACION", listParameter);
+                string resultado = GetDataBaseHelper().ExecuteProcedureScalar("SP_ACTUALIZAR_COTIZACION", listParameter);
+                id = !string.IsNullOrEmpty(resultado) ? Convert.ToInt32(resultado) : 0;
             }
             catch (Exception exc)
             {
                 throw new Exception(exc.Message);
             }
+            return id;
         }
     }
 }

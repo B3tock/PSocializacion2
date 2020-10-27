@@ -38,24 +38,19 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
+        <div></div>
         <div class="wrapper">
             <div class="sideBar" id="sidebar">
                 <asp:Menu ID="MenuFactory" runat="server" CssClass="sideNav">
                     <StaticMenuStyle CssClass="sideNav" />
                     <Items>
-                        <asp:MenuItem Text="Despacho" Value="Despacho">
-                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Despacho/FormDespacho.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        <asp:MenuItem Text="Despacho" Value="Despacho" NavigateUrl="~/Despacho/FormDespacho.aspx">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Cotización" Value="Cotización">
-                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Cotizacion/FormCotizacion.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        <asp:MenuItem Text="Cotización" Value="Cotización" NavigateUrl="~/Cotizacion/FormCotizacion.aspx">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Catálogo" Value="Catalogo">
-                            <asp:MenuItem Text="Crear" Value="Crear" NavigateUrl="~/Catalogo/FormCatalogo.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Consultar" Value="Consultar"></asp:MenuItem>
+                        <asp:MenuItem Text="Catálogo" Value="Catalogo" NavigateUrl="~/Catalogo/FormCatalogo.aspx">
                         </asp:MenuItem>
+                        <asp:MenuItem Text="Estadísticas" Value="Estadísticas"></asp:MenuItem>
                     </Items>
                     <LevelMenuItemStyles>
                         <asp:MenuItemStyle CssClass="ItemMenu" />
