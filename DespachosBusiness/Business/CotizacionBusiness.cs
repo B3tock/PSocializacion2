@@ -25,9 +25,10 @@ namespace DespachosBusinessLayer.Business
             CotizacionEntity result = cotizacionDataAccess.ConsultarCotizacionPorID(codigo);
             return result;
         }
-        public void ActualizarCotizacion(CotizacionEntity entidad)
+        public int ActualizarCotizacion(CotizacionEntity entidad)
         {
-            cotizacionDataAccess.ActualizarCotizacion(entidad);
+            int id = cotizacionDataAccess.ActualizarCotizacion(entidad);
+            return id;
         }
     }
 }

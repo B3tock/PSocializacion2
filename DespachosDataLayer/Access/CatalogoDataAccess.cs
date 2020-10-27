@@ -73,20 +73,27 @@ namespace DespachosDataLayer.Access
         }
         public List<CatalogoServicioEntity> ConsultarCatalogos()
         {
-            List<CatalogoServicioEntity> respuesta = new List<CatalogoServicioEntity>();
-            CatalogoServicioEntity catalogo = new CatalogoServicioEntity();
+            List<CatalogoServicioEntity> respuesta = new List<CatalogoServicioEntity>();            
             try
             {
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_CATALOGOS");
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
-                    catalogo.codigo = Convert.ToInt32(row["CODIGO"]);
-                    catalogo.nombre = row["NOMBRE"].ToString();
-                    catalogo.descripcion = row["DESCRIPCION"].ToString();
-                    catalogo.precio = float.Parse(row["PRECIO"].ToString());
-                    catalogo.estado = row["ESTADO"].ToString();
-                    catalogo.categoria = row["CATEGORIA"].ToString();                    
-                    catalogo.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEDOR"]);
+                    CatalogoServicioEntity catalogo = new CatalogoServicioEntity();
+                    if (row["CODIGO"] != DBNull.Value)
+                        catalogo.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["NOMBRE"] != DBNull.Value)
+                        catalogo.nombre = row["NOMBRE"].ToString();
+                    if (row["DESCRIPCION"] != DBNull.Value)
+                        catalogo.descripcion = row["DESCRIPCION"].ToString();
+                    if (row["PRECIO"] != DBNull.Value)
+                        catalogo.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["ESTADO"] != DBNull.Value)
+                        catalogo.estado = row["ESTADO"].ToString();
+                    if (row["CATEGORIA"] != DBNull.Value)
+                        catalogo.categoria = row["CATEGORIA"].ToString();
+                    if (row["CODIGO_PROVEDOR"] != DBNull.Value)
+                        catalogo.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEDOR"]);
                     respuesta.Add(catalogo);
                 }
             }
@@ -115,13 +122,20 @@ namespace DespachosDataLayer.Access
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_CATALOGO_ID", listParameter);
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
-                    catalogo.codigo = Convert.ToInt32(row["CODIGO"]);
-                    catalogo.nombre = row["NOMBRE"].ToString();
-                    catalogo.descripcion = row["DESCRIPCION"].ToString();
-                    catalogo.precio = float.Parse(row["PRECIO"].ToString());
-                    catalogo.estado = row["ESTADO"].ToString();
-                    catalogo.categoria = row["CATEGORIA"].ToString();
-                    catalogo.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEDOR"]);
+                    if (row["CODIGO"] != DBNull.Value)
+                        catalogo.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["NOMBRE"] != DBNull.Value)
+                        catalogo.nombre = row["NOMBRE"].ToString();
+                    if (row["DESCRIPCION"] != DBNull.Value)
+                        catalogo.descripcion = row["DESCRIPCION"].ToString();
+                    if (row["PRECIO"] != DBNull.Value)
+                        catalogo.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["ESTADO"] != DBNull.Value)
+                        catalogo.estado = row["ESTADO"].ToString();
+                    if (row["CATEGORIA"] != DBNull.Value)
+                        catalogo.categoria = row["CATEGORIA"].ToString();
+                    if (row["CODIGO_PROVEDOR"] != DBNull.Value)
+                        catalogo.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEDOR"]);
                     break;
                 }
             }
@@ -132,7 +146,7 @@ namespace DespachosDataLayer.Access
 
             return catalogo;
         }
-        public void ActualizarCatalogo(CatalogoServicioEntity entidad)
+        public int ActualizarCatalogo(CatalogoServicioEntity entidad)
         {
             List<SqlParameter> listParameter = new List<SqlParameter>();
 
@@ -176,16 +190,26 @@ namespace DespachosDataLayer.Access
                 ParameterName = "@CATEGORIA",
                 SqlDbType = SqlDbType.VarChar,
                 Value = entidad.categoria
-            });            
-            
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@CODIGO_PROVEDOR",
+                SqlDbType = SqlDbType.Int,
+                Value = entidad.codigoProveedor
+            });
+
+            int id = 0;
             try
             {
-                GetDataBaseHelper().ExecuteProcedureScalar("SP_ACTUALIZAR_CATALOGO", listParameter);               
+                string resultado = GetDataBaseHelper().ExecuteProcedureScalar("SP_ACTUALIZAR_CATALOGO", listParameter);
+                id = !string.IsNullOrEmpty(resultado) ? Convert.ToInt32(resultado) : 0;
             }
             catch (Exception exc)
             {
                 throw new Exception(exc.Message);
-            }           
+            }
+            return id;
         }
     }
 }
