@@ -10,5 +10,6 @@ namespace Bridge.CanalComun
         public int codigo_proveedor { get; set; }
         public string servicio { get; set; }
         public double precio { get; set; }
+        public string mensaje { get; set; }
     }
 }

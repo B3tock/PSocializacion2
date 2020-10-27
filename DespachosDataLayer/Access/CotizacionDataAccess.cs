@@ -31,13 +31,6 @@ namespace DespachosDataLayer.Access
 
             listParameter.Add(new SqlParameter
             {
-                ParameterName = "@PRECIO",
-                SqlDbType = SqlDbType.Float,
-                Value = entidad.precio
-            });
-
-            listParameter.Add(new SqlParameter
-            {
                 ParameterName = "@DESCRIPCION",
                 SqlDbType = SqlDbType.VarChar,
                 Value = entidad.descripcion
