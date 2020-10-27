@@ -46,7 +46,7 @@
                     <td>
                         <asp:LinkButton ID="lbRegistro" runat="server" OnClick="lbRegistro_Click" CausesValidation="False">Registro</asp:LinkButton>
                         <br />
-                        <asp:LinkButton ID="lbReset" runat="server" OnClick="lbReset_Click" CausesValidation="False">Restablecer contraseña</asp:LinkButton>
+                        <asp:LinkButton ID="lbReset" runat="server" OnClick="lbReset_Click" CausesValidation="False" Visible="False">Restablecer contraseña</asp:LinkButton>
                     </td>
                     <td align="">
                         <asp:Button ID="btnEntrar" runat="server" Text="Entrar" Width="150px" OnClick="btnEntrar_Click" />

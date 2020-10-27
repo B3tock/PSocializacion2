@@ -7,7 +7,7 @@
                 <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                     <asp:View ID="View1" runat="server">
                         <asp:LinkButton ID="lbNuevo" runat="server" OnClick="lbNuevo_Click" ToolTip="Nuevo Catálogo">Nuevo Catálogo</asp:LinkButton>
-                        <asp:GridView ID="gridCatalogos" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="gridCatalogos_SelectedIndexChanged" Width="100%" DataKeyNames="codigo">
+                        <asp:GridView ID="gridCatalogos" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gridCatalogos_SelectedIndexChanged" Width="100%" DataKeyNames="codigo" OnRowCommand="gridCatalogos_RowCommand">
                             <Columns>
                                 <asp:BoundField DataField="codigo" HeaderText="codigo" SortExpression="codigo" />
                                 <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
@@ -19,7 +19,6 @@
                                 <asp:CommandField ShowSelectButton="True" />
                             </Columns>
                         </asp:GridView>
-                        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="DespachosDataLayer.Entity.CatalogoServicioEntity" InsertMethod="InsertarCatalogos" SelectMethod="ConsultarCatalogos" TypeName="DespachosBusinessLayer.Business.CatalogoBusiness" UpdateMethod="ActualizarCatalogo"></asp:ObjectDataSource>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
                         <table class="nav-justified">
@@ -52,6 +51,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txbDescripcion" runat="server" Width="200px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbDescripcion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -68,14 +68,15 @@
                                     <asp:Label ID="Label4" runat="server" Text="Estado"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlEstado" runat="server">
-                                        <asp:ListItem Selected="True">Seleccione</asp:ListItem>
+                                    <asp:DropDownList ID="ddlEstado" runat="server" Width="200px">
+                                        <asp:ListItem Selected="True"></asp:ListItem>
                                         <asp:ListItem>Activo</asp:ListItem>
                                         <asp:ListItem>Inactivo</asp:ListItem>
                                         <asp:ListItem>Procesado</asp:ListItem>
                                         <asp:ListItem>Entregado</asp:ListItem>
                                         <asp:ListItem>Pendiente</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlEstado" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

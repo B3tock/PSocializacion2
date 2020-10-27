@@ -16,7 +16,8 @@ namespace DespachosJaveriana.Catalogo
         {
             if (!IsPostBack)
             {
-                MultiView1.ActiveViewIndex = 0;
+                gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogos();
+                gridCatalogos.DataBind();                
             }
         }
 
@@ -76,8 +77,9 @@ namespace DespachosJaveriana.Catalogo
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimpiarControles();
+            gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogos();
             gridCatalogos.DataBind();
+            LimpiarControles();            
             MultiView1.ActiveViewIndex = 0;
         }
 
@@ -95,6 +97,11 @@ namespace DespachosJaveriana.Catalogo
             txbPrecio.Text = string.Empty;
             ddlEstado.SelectedIndex = 0;
             txbCategoria.Text = string.Empty;
+        }
+
+        protected void gridCatalogos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            
         }
     }
 }

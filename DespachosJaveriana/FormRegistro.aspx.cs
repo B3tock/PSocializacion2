@@ -43,5 +43,10 @@ namespace DespachosJaveriana
                 throw new Exception("Ocurió un error durante el proceso " + exc.Message);
             }
         }
+
+        protected void lbIrLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

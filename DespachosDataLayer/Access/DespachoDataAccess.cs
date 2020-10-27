@@ -41,7 +41,9 @@ namespace DespachosDataLayer.Access
                         catalogo.volumen = float.Parse(row["VOLUMEN"].ToString());
                     if (row["CLIENTE"] != DBNull.Value)
                         catalogo.NombreCliente = row["CLIENTE"].ToString();
-                    
+                    if (row["RUTA"] != DBNull.Value)
+                        catalogo.Ruta = row["RUTA"].ToString();
+
                     respuesta.Add(catalogo);
                 }
             }
