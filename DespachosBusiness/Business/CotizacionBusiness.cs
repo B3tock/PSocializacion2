@@ -30,5 +30,10 @@ namespace DespachosBusinessLayer.Business
             int id = cotizacionDataAccess.ActualizarCotizacion(entidad);
             return id;
         }
+        public List<CotizacionEntity> ConsultarCotizacionesProveedor(int codigoProveedor)
+        {
+            List<CotizacionEntity> result = cotizacionDataAccess.ConsultarCotizacionesProveedor(codigoProveedor);
+            return result;
+        }
     }
 }

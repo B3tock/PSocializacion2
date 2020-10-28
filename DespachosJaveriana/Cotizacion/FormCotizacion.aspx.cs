@@ -16,12 +16,14 @@ namespace DespachosJaveriana.Cotizacion
         DespachoBusiness despachoBusiness = new DespachoBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
-                gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
+                ClientesEntity proveedor = (ClientesEntity)Session["User"];
+                gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizacionesProveedor(proveedor.codigo);
                 gridCotizaciones.DataBind();
 
-                ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogos();
+                ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogosProveedor(proveedor.codigo);
                 ddlCatalogo.DataBind();
 
                 ddlDespacho.DataSource = despachoBusiness.ConsultarDespachos();
@@ -30,8 +32,9 @@ namespace DespachosJaveriana.Cotizacion
         }
 
         protected void lbNuevo_Click(object sender, EventArgs e)
-        {            
-            ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogos();
+        {
+            ClientesEntity proveedor = (ClientesEntity)Session["User"];
+            ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogosProveedor(proveedor.codigo);
             ddlCatalogo.DataBind();
 
             ddlDespacho.DataSource = despachoBusiness.ConsultarDespachos();
@@ -89,7 +92,8 @@ namespace DespachosJaveriana.Cotizacion
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
+            ClientesEntity proveedor = (ClientesEntity)Session["User"];
+            gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizacionesProveedor(proveedor.codigo);
             gridCotizaciones.DataBind();
             
             MultiView1.ActiveViewIndex = 0;

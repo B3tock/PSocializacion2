@@ -113,7 +113,7 @@ namespace DespachosDataLayer.Access
             listParameter.Add(new SqlParameter
             {
                 ParameterName = "@CODIGO",
-                SqlDbType = SqlDbType.VarChar,
+                SqlDbType = SqlDbType.Int,
                 Value = codigo
             });
 
@@ -210,6 +210,48 @@ namespace DespachosDataLayer.Access
                 throw new Exception(exc.Message);
             }
             return id;
+        }
+        public List<CatalogoServicioEntity> ConsultarCatalogosProveedor(int codigoProveedor)
+        {
+            List<CatalogoServicioEntity> respuesta = new List<CatalogoServicioEntity>();
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+
+                listParameter.Add(new SqlParameter
+                {
+                    ParameterName = "@CODIGO_PROVEDOR",
+                    SqlDbType = SqlDbType.Int,
+                    Value = codigoProveedor
+                });
+
+                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_CATALOGOS_PROVEEDOR", listParameter);
+                foreach (DataRow row in resultado.Tables[0].Rows)
+                {
+                    CatalogoServicioEntity catalogo = new CatalogoServicioEntity();
+                    if (row["CODIGO"] != DBNull.Value)
+                        catalogo.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["NOMBRE"] != DBNull.Value)
+                        catalogo.nombre = row["NOMBRE"].ToString();
+                    if (row["DESCRIPCION"] != DBNull.Value)
+                        catalogo.descripcion = row["DESCRIPCION"].ToString();
+                    if (row["PRECIO"] != DBNull.Value)
+                        catalogo.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["ESTADO"] != DBNull.Value)
+                        catalogo.estado = row["ESTADO"].ToString();
+                    if (row["CATEGORIA"] != DBNull.Value)
+                        catalogo.categoria = row["CATEGORIA"].ToString();
+                    if (row["CODIGO_PROVEDOR"] != DBNull.Value)
+                        catalogo.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEDOR"]);
+                    respuesta.Add(catalogo);
+                }
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+
+            return respuesta;
         }
     }
 }
