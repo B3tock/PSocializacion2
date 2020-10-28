@@ -169,6 +169,12 @@ namespace DespachosDataLayer.Access
                         catalogo.NombreCliente = row["CLIENTE"].ToString();
                     if (row["RUTA"] != DBNull.Value)
                         catalogo.Ruta = row["RUTA"].ToString();
+                    if (row["COTIZACION"] != DBNull.Value)
+                        catalogo.cotizacion = row["COTIZACION"].ToString(); 
+                    if (row["PRECIO"] != DBNull.Value)
+                        catalogo.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["ESTADO_COTIZACION"] != DBNull.Value)
+                        catalogo.estadoCotizacion = row["ESTADO_COTIZACION"].ToString();
 
                     respuesta.Add(catalogo);
                 }

@@ -19,14 +19,18 @@ namespace DespachosJaveriana.Cotizacion
             if (!IsPostBack)
             {
                 gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
-                gridCotizaciones.DataBind();                
+                gridCotizaciones.DataBind();
+
+                ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogos();
+                ddlCatalogo.DataBind();
+
+                ddlDespacho.DataSource = despachoBusiness.ConsultarDespachos();
+                ddlDespacho.DataBind();
             }
         }
 
         protected void lbNuevo_Click(object sender, EventArgs e)
-        {
-            //estadosNovedad.Insert(0, new EstadoNovedadSolicitud { IdEstadoNovedadSolicitud = 0, Descripcion = "Seleccione" });
-
+        {            
             ddlCatalogo.DataSource = catalogoBusiness.ConsultarCatalogos();
             ddlCatalogo.DataBind();
 
@@ -34,6 +38,7 @@ namespace DespachosJaveriana.Cotizacion
             ddlDespacho.DataBind();
 
             MultiView1.ActiveViewIndex = 1;
+            ActivarControles();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -61,8 +66,7 @@ namespace DespachosJaveriana.Cotizacion
 
                 if (id > 0)
                 {
-                    lblMensajeCotizacion.Text = "Registro guardado";
-                    LimpiarControles();
+                    lblMensajeCotizacion.Text = "Registro guardado";                    
                 }
                 else
                     lblMensajeCotizacion.Text = "El registro no se pudo guardar";
@@ -87,7 +91,9 @@ namespace DespachosJaveriana.Cotizacion
         {
             gridCotizaciones.DataSource = cotizacionBusiness.ConsultarCotizaciones();
             gridCotizaciones.DataBind();
+            
             MultiView1.ActiveViewIndex = 0;
+            LimpiarControles();
         }
 
         protected void gridCotizaciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +112,23 @@ namespace DespachosJaveriana.Cotizacion
             ddlEstado.SelectedValue = entidad.estado;
             ddlDespacho.SelectedValue = entidad.codigoDespacho.ToString();
 
-            MultiView1.ActiveViewIndex = 1;            
+            MultiView1.ActiveViewIndex = 1;
+            InactivarControles();
+        }
+
+        void InactivarControles()
+        {
+            txbPrecio.Enabled = false;
+            ddlCatalogo.Enabled = false;
+            txbDescripcion.Enabled = false;
+            ddlDespacho.Enabled = false;
+        }
+        void ActivarControles()
+        {
+            txbPrecio.Enabled = true;
+            ddlCatalogo.Enabled = true;
+            txbDescripcion.Enabled = true;
+            ddlDespacho.Enabled = true;
         }
     }
 }
