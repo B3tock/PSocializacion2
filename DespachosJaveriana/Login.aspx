@@ -13,11 +13,12 @@
     <script type="text/javascript" src="Vscripts/jquery-ui-1.9.2.min.js"></script>
     <link href="Style/jquery-ui.css" rel="stylesheet" />
     <title>Acceso al sistema</title>
-    <style type="text/css">
+<%--    <style type="text/css">
         .auto-style1 {
-            width: 50%;
+            width: 70%;
         }
-    </style>
+    </style>--%>
+      <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
