@@ -6,6 +6,7 @@ namespace DespachosDataLayer.Entity
 {
     public class EstadisticaEntity
     {
+        public string Completo { get; set; }
         public float Precio { get; set; }
         public string Proveedor { get; set; }
         public string Catalogo { get; set; }
