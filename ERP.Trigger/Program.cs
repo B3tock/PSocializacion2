@@ -17,15 +17,15 @@ namespace ERP.Trigger
             DespachoEntity despacho = new DespachoEntity();
 
             despacho.codigoCliente = 1;
-            despacho.direccionDestino = "MANIZALEZ CENTRO";
-            despacho.direccionOrigen = "BOGOTA FONTIBON";
+            despacho.direccionDestino = "BOGOTA soacha";
+            despacho.direccionOrigen = "BARRANQUILLA soledad";
             //despacho.Ruta 
             despacho.estado = "PENDIENTE"; // "OFERTADO" 
             despacho.fecha = DateTime.Now;
             despacho.NombreCliente = "";
-            despacho.observaciones = "PS5 pirata";
-            despacho.peso = 20;
-            despacho.volumen = 60;
+            despacho.observaciones = "Camaron";
+            despacho.peso = 1;
+            despacho.volumen = 1;
 
             despacho.codigo = (new DespachosBusinessLayer.Business.DespachoBusiness()).InsertarDespacho(despacho);
 

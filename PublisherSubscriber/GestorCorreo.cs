@@ -26,7 +26,7 @@ namespace PublisherSubscriber
         private static void InicializaConfiguracion()
         {
             var builder = new ConfigurationBuilder()
-                                    .SetBasePath("C:\\Users\\zoray\\source\\repos\\WADespachosJaveriana\\PSocializacion2\\PublisherSubscriber\\")
+                                    .SetBasePath("D:\\code\\PSocializacion2\\PublisherSubscriber\\")
                                     .AddXmlFile("Configuracion.xml");
             Configuration = builder.Build();
         }
