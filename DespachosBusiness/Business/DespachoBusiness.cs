@@ -15,5 +15,11 @@ namespace DespachosBusinessLayer.Business
             respuesta = despachoDataAccess.ConsultarDespachos();
             return respuesta;
         }
+
+        public int InsertarDespacho(DespachoEntity entidad)
+        {
+            return despachoDataAccess.InsertarDespacho(entidad);
+        }
+
     }
 }
