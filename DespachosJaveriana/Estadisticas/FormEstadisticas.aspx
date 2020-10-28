@@ -4,12 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Chart ID="chartEstadistica" runat="server" Width="718px" BorderlineWidth="0" Height="432px">
         <Series>            
-            <asp:Series ChartArea="ChartArea1" Name="Series1" XValueMember="Proveedor" YValueMembers="Precio"
-                LegendText="Catálogo" IsValueShownAsLabel="false" MarkerBorderColor="#DBDBDB">
-            </asp:Series>
-            <asp:Series ChartArea="ChartArea1" Name="Series2" XValueMember="Catalogo" YValueMembers="Precio"
-                LegendText="Proveedor" IsValueShownAsLabel="false" MarkerBorderColor="#DBDBDB">
-            </asp:Series>
+            <asp:Series ChartArea="ChartArea1" Name="Series1" XValueMember="Completo" YValueMembers="Precio"
+                LegendText="Catálogo-Proverdor" IsValueShownAsLabel="false" MarkerBorderColor="#DBDBDB">
+            </asp:Series>            
         </Series>
         <Legends>
             <asp:Legend Title="Cotizaciones" />
