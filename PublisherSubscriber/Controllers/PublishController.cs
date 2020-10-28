@@ -5,7 +5,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using System.Net.Http.Formatting;
+using System.Threading.Tasks;
 
 namespace PublisherSubscriber.Controllers
 {
@@ -27,26 +30,25 @@ namespace PublisherSubscriber.Controllers
         public string Post([FromBody] RequestPub requestPub)
         {
             HttpClient clienteHttp = new HttpClient();        
-
-            ProveedoresMd pmd = new ProveedoresMd();
-
-            //pmd.Codigo = requestPub.Codigo_proveedor;
-            //pmd.Url_Consumo = requestPub.Url_Proveedor;
-
+            //Abrir conexion
             CorePOSApi.Business.Data.context.DataModelService da = new CorePOSApi.Business.Data.context.DataModelService();
             string cadena = "SP_CONSULTAR_PROVEEDORES";
             SqlCommand comando = new SqlCommand(cadena, da._connection);
+            //Ejecuto consulta de proveedores
             SqlDataReader registros = comando.ExecuteReader();
             while (registros.Read())
             {
-                clienteHttp.BaseAddress = new Uri(registros["URL_CONSUMO"].ToString());
-                //clienteHttp.PostAsync();
-            //    textBox1.AppendText(registros["codigo"].ToString());
-            //    textBox1.AppendText(" - ");
-            //    textBox1.AppendText(registros["descripcion"].ToString());
-            //    textBox1.AppendText(" - ");
-            //    textBox1.AppendText(registros["precio"].ToString());
-            //    textBox1.AppendText(Environment.NewLine);
+                string url_consumo = registros["URL_CONSUMO"].ToString();
+                //Si esta subscrito
+                if (url_consumo != "")
+                {
+                    requestPub.Codigo_proveedor= registros["CODIGO"].ToString();
+                    var request = clienteHttp.PostAsync(url_consumo, requestPub, new JsonMediaTypeFormatter());
+                    request.Wait();
+                    GestorCorreo gestor = new GestorCorreo();
+                    gestor.EnviarCorreo(registros["CORREO"].ToString(),"Cotización",
+                        "Cotización - Codigo Despacho: " + requestPub.Codigo_despacho + " - Volumen: " + requestPub.Volumen + " - Peso: " + requestPub.Peso + " - Direccion_origen: " + requestPub.Direccion_origen + " - Direccion_destino: " + requestPub.Direccion_destino);
+                }
             }
             da._connection.Close();
 

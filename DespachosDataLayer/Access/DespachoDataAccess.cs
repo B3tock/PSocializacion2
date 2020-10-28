@@ -55,6 +55,80 @@ namespace DespachosDataLayer.Access
             return respuesta;
         }
 
+        public int InsertarDespacho(DespachoEntity entidad)
+        {
+            List<SqlParameter> listParameter = new List<SqlParameter>();
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@FECHA",
+                SqlDbType = SqlDbType.DateTime,
+                Value = entidad.fecha
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@DIRECCION_ORIGEN",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.direccionOrigen
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@DIRECCION_DESTINO",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.direccionDestino
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@OBSERVACIONES",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.observaciones
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@CODIGO_CLIENTE",
+                SqlDbType = SqlDbType.Int,
+                Value = entidad.codigoCliente
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@ESTADO",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.estado
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@PESO",
+                SqlDbType = SqlDbType.Float,
+                Value = entidad.peso
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@VOLUMEN",
+                SqlDbType = SqlDbType.Float,
+                Value = entidad.peso
+            });
+
+            int id = 0;
+            try
+            {
+                string resultado = GetDataBaseHelper().ExecuteProcedureScalar("SP_CREAR_DESPACHO", listParameter);
+                id = !string.IsNullOrEmpty(resultado) ? Convert.ToInt32(resultado) : 0;
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            return id;
+        }
+
+
         public List<DespachoEntity> ConsultarDespachosPorCliente(int codigo)
         {
             List<DespachoEntity> respuesta = new List<DespachoEntity>();
