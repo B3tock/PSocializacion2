@@ -19,12 +19,17 @@ namespace DespachosJaveriana.Estadisticas
 
             chartEstadistica.Palette = ChartColorPalette.Pastel;
             chartEstadistica.Titles.Add("Cotizaciones");
-
+            List<string> seriesList = new List<string>();
             foreach (EstadisticaEntity data in dataList)
-            {
-                Series serie = chartEstadistica.Series.Add(data.Proveedor);
-                serie.Label = data.Precio.ToString();
-                serie.Points.Add(data.Precio);
+            {                
+                Series serie = new Series();
+                seriesList.Add(data.Proveedor);
+                if (!seriesList.Contains(data.Proveedor))
+                {
+                    serie = chartEstadistica.Series.Add(data.Proveedor);
+                    serie.Label = data.Precio.ToString();
+                    serie.Points.Add(data.Precio);
+                }
             }
         }
     }

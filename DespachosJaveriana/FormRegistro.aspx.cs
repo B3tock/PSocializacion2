@@ -42,11 +42,30 @@ namespace DespachosJaveriana
             {
                 throw new Exception("Ocurió un error durante el proceso " + exc.Message);
             }
+
+            lblMensaje.Text = "Registro exitoso";
+
+            LimpiarCampos();
+            lbIrLogin.Visible = true;
+        }
+
+        private void LimpiarCampos()
+        {
+            txbCorreo.Text = string.Empty;
+            txbDireccion.Text = string.Empty;            
+            txbCorreo.Text = string.Empty;
+            txbNit.Text = string.Empty;
+            txbNombre.Text = string.Empty;
+            txbContrasenia.Text = string.Empty;
+            txbRazonSocial.Text = string.Empty;
+            txbSitioWeb.Text = string.Empty;
+            txbTelefono.Text = string.Empty;
+            ddlTipoUsuario.SelectedIndex = 0;
         }
 
         protected void lbIrLogin_Click(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dza", "<script type='text/javascript'>window.location='" + ResolveUrl("Login.aspx") + "';</script>", false);
         }
     }
 }

@@ -113,7 +113,8 @@
                 <tr>
                     <td colspan="2" align="center">
                         <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:LinkButton ID="lbIrLogin" runat="server" CausesValidation="False" OnClick="lbIrLogin_Click" Visible="False">Login</asp:LinkButton>
+                        <br />
+                        <asp:LinkButton ID="lbIrLogin" runat="server" CausesValidation="False" OnClick="lbIrLogin_Click">Volver a login</asp:LinkButton>
                     </td>
                 </tr>
             </table>
