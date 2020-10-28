@@ -11,12 +11,21 @@ namespace DespachosDataLayer.Access
     public class EstadisticaDataAccess : SQLDALAdapter
     {
         List<SqlParameter> listParameter = new List<SqlParameter>();
-        public List<EstadisticaEntity> ConsultarEstadisticas()
+        public List<EstadisticaEntity> ConsultarEstadisticas(int codigoCliente)
         {
             List<EstadisticaEntity> respuesta = new List<EstadisticaEntity>();
             try
             {
-                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_ESTADISTICAS");
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+
+                listParameter.Add(new SqlParameter
+                {
+                    ParameterName = "@CODIGO_CLIENTE",
+                    SqlDbType = SqlDbType.Int,
+                    Value = codigoCliente
+                });
+
+                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_ESTADISTICAS", listParameter);
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
                     EstadisticaEntity estadistica = new EstadisticaEntity();
@@ -27,9 +36,7 @@ namespace DespachosDataLayer.Access
                     if (row["CATALOGO"] != DBNull.Value)
                         estadistica.Catalogo = row["CATALOGO"].ToString();
                     if (row["COMPLETO"] != DBNull.Value)
-                        estadistica.Completo = row["COMPLETO"].ToString();
-                    //if (row["FECHA"] != DBNull.Value)
-                    //    estadistica.FechaDespacho = Convert.ToDateTime(row["FECHA"]);
+                        estadistica.Completo = row["COMPLETO"].ToString();                    
 
                     respuesta.Add(estadistica);
                 }

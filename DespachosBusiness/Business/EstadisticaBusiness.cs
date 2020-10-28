@@ -10,9 +10,9 @@ namespace DespachosBusinessLayer.Business
     {
         EstadisticaDataAccess estadisticaDataAccess = new EstadisticaDataAccess();
 
-        public List<EstadisticaEntity> ConsultarEstadisticas()
+        public List<EstadisticaEntity> ConsultarEstadisticas(int codigoCliente)
         {
-            List<EstadisticaEntity> respuesta = estadisticaDataAccess.ConsultarEstadisticas();
+            List<EstadisticaEntity> respuesta = estadisticaDataAccess.ConsultarEstadisticas(codigoCliente);
             return respuesta;
         }
     }

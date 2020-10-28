@@ -5,11 +5,11 @@
     <asp:Chart ID="chartEstadistica" runat="server" Width="718px" BorderlineWidth="0" Height="432px">
         <Series>            
             <asp:Series ChartArea="ChartArea1" Name="Series1" XValueMember="Completo" YValueMembers="Precio"
-                LegendText="Catálogo-Proverdor" IsValueShownAsLabel="false" MarkerBorderColor="#DBDBDB">
+                LegendText="Catálogo(Proverdor)" IsValueShownAsLabel="false" MarkerBorderColor="#DBDBDB">
             </asp:Series>            
         </Series>
         <Legends>
-            <asp:Legend Title="Cotizaciones" />
+            <asp:Legend Title="Serie" />
         </Legends>
         <Titles>
             <asp:Title Docking="Bottom" Text="Reporte de Cotizaciones" />

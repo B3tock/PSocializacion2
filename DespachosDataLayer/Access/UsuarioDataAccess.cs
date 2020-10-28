@@ -122,12 +122,18 @@ namespace DespachosDataLayer.Access
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_LOGIN_USUARIO", listParameter);
                 foreach(DataRow row in resultado.Tables[0].Rows)
                 {
+                    if (row["CODIGO"] != DBNull.Value)
                     result.codigo = Convert.ToInt32(row["CODIGO"]);
-                    result.login = row["LOGIN"].ToString();
-                    result.password = row["PASSWORD"].ToString();
-                    result.estado = Convert.ToBoolean(row["ESTADO"]);
-                    result.fechaCreacion = Convert.ToDateTime(row["FECHA_CREACION"]);
-                    result.tipoUsuario = row["TIPO_USUARIO"].ToString();                    
+                    if (row["LOGIN"] != DBNull.Value)
+                        result.login = row["LOGIN"].ToString();
+                    if (row["PASSWORD"] != DBNull.Value)
+                        result.password = row["PASSWORD"].ToString();
+                    if (row["ESTADO"] != DBNull.Value)
+                        result.estado = Convert.ToBoolean(row["ESTADO"]);
+                    if (row["FECHA_CREACION"] != DBNull.Value)
+                        result.fechaCreacion = Convert.ToDateTime(row["FECHA_CREACION"]);
+                    if (row["TIPO_USUARIO"] != DBNull.Value)
+                        result.tipoUsuario = row["TIPO_USUARIO"].ToString();                    
                     break;
                 }
             }

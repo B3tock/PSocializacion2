@@ -54,7 +54,6 @@ namespace DespachosDataLayer.Access
 
             return respuesta;
         }
-
         public int InsertarDespacho(DespachoEntity entidad)
         {
             List<SqlParameter> listParameter = new List<SqlParameter>();
@@ -127,8 +126,6 @@ namespace DespachosDataLayer.Access
             }
             return id;
         }
-
-
         public List<DespachoEntity> ConsultarDespachosPorCliente(int codigo)
         {
             List<DespachoEntity> respuesta = new List<DespachoEntity>();
