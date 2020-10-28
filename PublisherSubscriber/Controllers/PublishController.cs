@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using System.Net.Http.Formatting;
+using System.Threading.Tasks;
 
 namespace PublisherSubscriber.Controllers
 {
@@ -38,17 +39,13 @@ namespace PublisherSubscriber.Controllers
             while (registros.Read())
             {
                 string url_consumo = registros["URL_CONSUMO"].ToString();
-                if  (url_consumo != "")
+                //Si esta subscrito
+                if (url_consumo != "")
                 {
-                    string[] separatingStrings = { "api", "QQQ" };
-
-                    string[] url = url_consumo.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
-                    // HttpContent httpContent = new StringContent(requestPub, Encoding.UTF8, "application/json");
-                    clienteHttp.BaseAddress = new Uri(url[0]);
-                    var request = clienteHttp.PostAsync("api/" + url[1], requestPub, new JsonMediaTypeFormatter()).Result;
-
+                    requestPub.Codigo_proveedor= registros["CODIGO"].ToString();
+                    var request = clienteHttp.PostAsync(url_consumo, requestPub, new JsonMediaTypeFormatter());
+                    request.Wait();
                 }
-
             }
             da._connection.Close();
 
