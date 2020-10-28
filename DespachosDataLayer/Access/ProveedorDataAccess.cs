@@ -24,6 +24,8 @@ namespace DespachosDataLayer.Access
                     ProveedorEntity proveedor = new ProveedorEntity();
                     if (row["CODIGO"] != DBNull.Value)
                         proveedor.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["NOMBRE"] != DBNull.Value)
+                        proveedor.nombre = row["NOMBRE"].ToString();
                     if (row["CORREO"] != DBNull.Value)
                         proveedor.correo = row["CORREO"].ToString();
                     if (row["TELEFONO"] != DBNull.Value)

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://secure.controlsms.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://secure.controlsms.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://secure.controlsms.net/">
+      <s:element name="A">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="C">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SSA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SSAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SSAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ASoapIn">
+    <wsdl:part name="parameters" element="tns:A" />
+  </wsdl:message>
+  <wsdl:message name="ASoapOut">
+    <wsdl:part name="parameters" element="tns:AResponse" />
+  </wsdl:message>
+  <wsdl:message name="CSoapIn">
+    <wsdl:part name="parameters" element="tns:C" />
+  </wsdl:message>
+  <wsdl:message name="CSoapOut">
+    <wsdl:part name="parameters" element="tns:CResponse" />
+  </wsdl:message>
+  <wsdl:message name="QCSoapIn">
+    <wsdl:part name="parameters" element="tns:QC" />
+  </wsdl:message>
+  <wsdl:message name="QCSoapOut">
+    <wsdl:part name="parameters" element="tns:QCResponse" />
+  </wsdl:message>
+  <wsdl:message name="SSASoapIn">
+    <wsdl:part name="parameters" element="tns:SSA" />
+  </wsdl:message>
+  <wsdl:message name="SSASoapOut">
+    <wsdl:part name="parameters" element="tns:SSAResponse" />
+  </wsdl:message>
+  <wsdl:message name="AHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QCHttpGetIn">
+    <wsdl:part name="number" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QCHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SSAHttpGetIn">
+    <wsdl:part name="c" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SSAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QCHttpPostIn">
+    <wsdl:part name="number" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QCHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SSAHttpPostIn">
+    <wsdl:part name="c" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SSAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="A">
+      <wsdl:input message="tns:ASoapIn" />
+      <wsdl:output message="tns:ASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <wsdl:input message="tns:CSoapIn" />
+      <wsdl:output message="tns:CSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <wsdl:input message="tns:QCSoapIn" />
+      <wsdl:output message="tns:QCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <wsdl:input message="tns:SSASoapIn" />
+      <wsdl:output message="tns:SSASoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="A">
+      <wsdl:input message="tns:AHttpGetIn" />
+      <wsdl:output message="tns:AHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <wsdl:input message="tns:CHttpGetIn" />
+      <wsdl:output message="tns:CHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <wsdl:input message="tns:QCHttpGetIn" />
+      <wsdl:output message="tns:QCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <wsdl:input message="tns:SSAHttpGetIn" />
+      <wsdl:output message="tns:SSAHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="A">
+      <wsdl:input message="tns:AHttpPostIn" />
+      <wsdl:output message="tns:AHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <wsdl:input message="tns:CHttpPostIn" />
+      <wsdl:output message="tns:CHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <wsdl:input message="tns:QCHttpPostIn" />
+      <wsdl:output message="tns:QCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <wsdl:input message="tns:SSAHttpPostIn" />
+      <wsdl:output message="tns:SSAHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A">
+      <soap:operation soapAction="https://secure.controlsms.net/A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <soap:operation soapAction="https://secure.controlsms.net/C" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <soap:operation soapAction="https://secure.controlsms.net/QC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <soap:operation soapAction="https://secure.controlsms.net/SSA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A">
+      <soap12:operation soapAction="https://secure.controlsms.net/A" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <soap12:operation soapAction="https://secure.controlsms.net/C" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <soap12:operation soapAction="https://secure.controlsms.net/QC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <soap12:operation soapAction="https://secure.controlsms.net/SSA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="A">
+      <http:operation location="/A" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <http:operation location="/C" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <http:operation location="/QC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <http:operation location="/SSA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="A">
+      <http:operation location="/A" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="C">
+      <http:operation location="/C" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QC">
+      <http:operation location="/QC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SSA">
+      <http:operation location="/SSA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://secure.controlsms.net/ws/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://secure.controlsms.net/ws/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="https://secure.controlsms.net/ws/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="https://secure.controlsms.net/ws/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

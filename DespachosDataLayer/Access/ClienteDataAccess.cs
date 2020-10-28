@@ -24,6 +24,8 @@ namespace DespachosDataLayer.Access
                     ClientesEntity clientes = new ClientesEntity();
                     if (row["CODIGO"] != DBNull.Value)
                         clientes.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["NOMBRE"] != DBNull.Value)
+                        clientes.nombre = row["NOMBRE"].ToString();
                     if (row["CORREO"] != DBNull.Value)
                         clientes.correo = row["CORREO"].ToString();
                     if (row["TELEFONO"] != DBNull.Value)
