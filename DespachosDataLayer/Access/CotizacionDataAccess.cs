@@ -93,7 +93,8 @@ namespace DespachosDataLayer.Access
                         cotizacion.direccionDestino = row["DIRECCION_DESTINO"].ToString();
                     if (row["PROVEEDOR"] != DBNull.Value)
                         cotizacion.proveedor = row["PROVEEDOR"].ToString();
-
+                    if (row["CODIGO_PROVEEDOR"] != DBNull.Value)
+                        cotizacion.codigoProveedor = Convert.ToInt32(row["CODIGO_PROVEEDOR"].ToString());
                     respuesta.Add(cotizacion);
                 }
             }

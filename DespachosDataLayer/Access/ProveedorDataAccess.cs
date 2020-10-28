@@ -8,27 +8,27 @@ using System.Text;
 
 namespace DespachosDataLayer.Access
 {
-    public class ClienteDataAccess : SQLDALAdapter
+    public class ProveedorDataAccess : SQLDALAdapter
     {
 
         List<SqlParameter> listParameter = new List<SqlParameter>();
 
-        public List<ClientesEntity> ConsultarClientes()
+        public List<ProveedorEntity> ConsultarProveedores()
         {
-            List<ClientesEntity> respuesta = new List<ClientesEntity>();
+            List<ProveedorEntity> respuesta = new List<ProveedorEntity>();
             try
             {
-                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_CLIENTES");
+                DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_PROVEEDORES");
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
-                    ClientesEntity clientes = new ClientesEntity();
+                    ProveedorEntity proveedor = new ProveedorEntity();
                     if (row["CODIGO"] != DBNull.Value)
-                        clientes.codigo = Convert.ToInt32(row["CODIGO"]);
+                        proveedor.codigo = Convert.ToInt32(row["CODIGO"]);
                     if (row["CORREO"] != DBNull.Value)
-                        clientes.correo = row["CORREO"].ToString();
+                        proveedor.correo = row["CORREO"].ToString();
                     if (row["TELEFONO"] != DBNull.Value)
-                        clientes.telefono = row["TELEFONO"].ToString();
-                    respuesta.Add(clientes);
+                        proveedor.telefono = row["TELEFONO"].ToString();
+                    respuesta.Add(proveedor);
                 }
             }
             catch (Exception exc)
@@ -38,6 +38,7 @@ namespace DespachosDataLayer.Access
 
             return respuesta;
         }
+
 
     }
 }

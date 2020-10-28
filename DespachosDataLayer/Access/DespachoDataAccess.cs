@@ -180,5 +180,37 @@ namespace DespachosDataLayer.Access
 
             return respuesta;
         }
+        public int ActualizarDespacho(DespachoEntity entidad)
+        {
+            List<SqlParameter> listParameter = new List<SqlParameter>();
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@CODIGO",
+                SqlDbType = SqlDbType.Int,
+                Value = entidad.codigo
+            });
+
+            listParameter.Add(new SqlParameter
+            {
+                ParameterName = "@ESTADO",
+                SqlDbType = SqlDbType.VarChar,
+                Value = entidad.estado
+            });
+
+
+            int id = 0;
+            try
+            {
+                string resultado = GetDataBaseHelper().ExecuteProcedureScalar("SP_ACTUALIZAR_DESPACHO", listParameter);
+                id = !string.IsNullOrEmpty(resultado) ? Convert.ToInt32(resultado) : 0;
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            return id;
+        }
+
     }
 }
