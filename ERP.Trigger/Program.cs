@@ -26,6 +26,8 @@ namespace ERP.Trigger
 
             despacho.codigo = (new DespachosBusinessLayer.Business.DespachoBusiness()).InsertarDespacho(despacho);
 
+            System.Console.WriteLine("Despacho Creado:" + despacho.codigo );
+
             PublisherSubscriber.Controllers.PublishController controller = new PublisherSubscriber.Controllers.PublishController();
             PublisherSubscriber.Models.RequestPub request = new PublisherSubscriber.Models.RequestPub();
             request.Codigo_despacho = despacho.codigo.ToString();
