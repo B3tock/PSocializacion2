@@ -172,7 +172,8 @@ namespace DespachosDataLayer.Access
                         catalogo.precio = float.Parse(row["PRECIO"].ToString());
                     if (row["ESTADO_COTIZACION"] != DBNull.Value)
                         catalogo.estadoCotizacion = row["ESTADO_COTIZACION"].ToString();
-
+                    if (row["SERVICIO"] != DBNull.Value)
+                        catalogo.servicio = row["SERVICIO"].ToString();
                     respuesta.Add(catalogo);
                 }
             }
