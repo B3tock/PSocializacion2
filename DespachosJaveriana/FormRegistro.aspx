@@ -6,19 +6,22 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
+<%--    <style type="text/css">
         .auto-style1 {
             width: 70%;
         }
-    </style>
+    </style>--%>
+
+      <link rel="stylesheet" href="css/style.css"/>
+
 </head>
-<body>
+<body class="main-layout home_page">
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
                     <td colspan="2" align="center">
-                        <asp:Label ID="Label7" runat="server" Text="Registro Usuarios"></asp:Label>
+                        <h1><asp:Label ID="Label7" runat="server" Text="Registro Usuarios"></asp:Label></h1>
                     </td>
                 </tr>
                 <tr>
