@@ -19,6 +19,7 @@
                                 <asp:BoundField DataField="NombreCliente" HeaderText="Cliente" />
                                 <asp:BoundField DataField="Ruta" HeaderText="Ruta" Visible="False" />
                                 <asp:BoundField DataField="cotizacion" HeaderText="Cotización" />
+                                <asp:BoundField DataField="servicio" HeaderText="Servicio" />
                                 <asp:BoundField DataField="precio" HeaderText="Precio" />
                                 <asp:BoundField DataField="estadoCotizacion" HeaderText="Estado Cot." />
                             </Columns>
