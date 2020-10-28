@@ -1,21 +1,17 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DespachosJaveriana.SiteMaster" %>
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
-
+    <title><%: Page.Title %> - Despachos La Javeriana</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
     <form runat="server">
@@ -63,7 +59,7 @@
                 </asp:Menu>
             </div>
         </div>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <%--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -81,13 +77,13 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Despachos La Javeriana</p>
             </footer>
         </div>
     </form>

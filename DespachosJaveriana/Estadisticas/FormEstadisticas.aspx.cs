@@ -15,22 +15,27 @@ namespace DespachosJaveriana.Estadisticas
         EstadisticaBusiness estadisticaBusiness = new EstadisticaBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<EstadisticaEntity> dataList = estadisticaBusiness.ConsultarEstadisticas();
+            if (!IsPostBack)
+                LoadData();
+        }
 
-            chartEstadistica.Palette = ChartColorPalette.Pastel;
-            chartEstadistica.Titles.Add("Cotizaciones");
-            List<string> seriesList = new List<string>();
-            foreach (EstadisticaEntity data in dataList)
-            {                
-                Series serie = new Series();
-                seriesList.Add(data.Proveedor);
-                if (!seriesList.Contains(data.Proveedor))
-                {
-                    serie = chartEstadistica.Series.Add(data.Proveedor);
-                    serie.Label = data.Precio.ToString();
-                    serie.Points.Add(data.Precio);
-                }
+        void LoadData()
+        {
+            List<EstadisticaEntity> dataList = estadisticaBusiness.ConsultarEstadisticas();
+            chartEstadistica.DataSource = dataList;
+            chartEstadistica.DataBind();
+
+            /*string[] x = new string[dataList.Count];
+            float[] y = new float[dataList.Count];
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                x[i] = dataList[i].Catalogo;
+                y[i] = dataList[i].Precio;
             }
+            chartEstadistica.Series[0].Points.DataBindXY(x, y);
+            chartEstadistica.Series[0].ChartType = SeriesChartType.Pie;
+            //chartEstadistica.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
+            chartEstadistica.Legends[0].Enabled = true;*/
         }
     }
 }

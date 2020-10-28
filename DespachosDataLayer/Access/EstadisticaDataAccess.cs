@@ -26,10 +26,10 @@ namespace DespachosDataLayer.Access
                         estadistica.Proveedor = row["PROVEEDOR"].ToString();
                     if (row["CATALOGO"] != DBNull.Value)
                         estadistica.Catalogo = row["CATALOGO"].ToString();
-                    if (row["CLIENTE"] != DBNull.Value)
-                        estadistica.Cliente = row["CLIENTE"].ToString();
-                    if (row["FECHA"] != DBNull.Value)
-                        estadistica.FechaDespacho = Convert.ToDateTime(row["FECHA"]);
+                    //if (row["CLIENTE"] != DBNull.Value)
+                    //    estadistica.Cliente = row["CLIENTE"].ToString();
+                    //if (row["FECHA"] != DBNull.Value)
+                    //    estadistica.FechaDespacho = Convert.ToDateTime(row["FECHA"]);
 
                     respuesta.Add(estadistica);
                 }

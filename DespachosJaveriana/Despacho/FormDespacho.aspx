@@ -9,15 +9,18 @@
                             <Columns>
                                 <asp:BoundField DataField="codigo" HeaderText="Código" />
                                 <asp:BoundField DataField="fecha" HeaderText="Fecha" />
-                                <asp:BoundField DataField="direccionOrigen" HeaderText="Dirección Origen" />
-                                <asp:BoundField DataField="direccionDestino" HeaderText="Dirección Destino" />
+                                <asp:BoundField DataField="direccionOrigen" HeaderText="Origen" />
+                                <asp:BoundField DataField="direccionDestino" HeaderText="Destino" />
                                 <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
                                 <asp:BoundField DataField="codigoCliente" Visible="False" />
-                                <asp:BoundField DataField="estado" HeaderText="Estado" />
+                                <asp:BoundField DataField="estado" HeaderText="Estado Desp." />
                                 <asp:BoundField DataField="peso" HeaderText="Peso" />
                                 <asp:BoundField DataField="volumen" HeaderText="Volumen" />
-                                <asp:BoundField DataField="NombreCliente" HeaderText="Nombre Cliente" />
+                                <asp:BoundField DataField="NombreCliente" HeaderText="Cliente" />
                                 <asp:BoundField DataField="Ruta" />
+                                <asp:BoundField DataField="cotizacion" HeaderText="Cotización" />
+                                <asp:BoundField DataField="precio" HeaderText="Precio" />
+                                <asp:BoundField DataField="estadoCotizacion" HeaderText="Estado Cot." />
                             </Columns>
                         </asp:GridView>
                     </asp:View>

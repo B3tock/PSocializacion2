@@ -123,13 +123,20 @@ namespace DespachosDataLayer.Access
                 DataSet resultado = GetDataBaseHelper().ExecuteProcedureToDataSet("SP_CONSULTAR_COTIZACION_ID", listParameter);
                 foreach (DataRow row in resultado.Tables[0].Rows)
                 {
-                    cotizacion.codigo = Convert.ToInt32(row["CODIGO"]);
-                    cotizacion.fecha = Convert.ToDateTime(row["FECHA"]);                    
-                    cotizacion.precio = float.Parse(row["PRECIO"].ToString());
-                    cotizacion.codigoCatalogo = Convert.ToInt32(row["CODIGO_CATALOGO"]);
-                    cotizacion.descripcion = row["DESCRIPCION"].ToString();
-                    cotizacion.estado = row["ESTADO"].ToString();                    
-                    cotizacion.codigoDespacho = Convert.ToInt32(row["CODIGO_DESPACHO"]);
+                    if (row["CODIGO"] != DBNull.Value)
+                        cotizacion.codigo = Convert.ToInt32(row["CODIGO"]);
+                    if (row["FECHA"] != DBNull.Value)
+                        cotizacion.fecha = Convert.ToDateTime(row["FECHA"]);
+                    if (row["PRECIO"] != DBNull.Value)
+                        cotizacion.precio = float.Parse(row["PRECIO"].ToString());
+                    if (row["CODIGO_CATALOGO"] != DBNull.Value)
+                        cotizacion.codigoCatalogo = Convert.ToInt32(row["CODIGO_CATALOGO"]);
+                    if (row["DESCRIPCION"] != DBNull.Value)
+                        cotizacion.descripcion = row["DESCRIPCION"].ToString();
+                    if (row["ESTADO"] != DBNull.Value)
+                        cotizacion.estado = row["ESTADO"].ToString();
+                    if (row["CODIGO_DESPACHO"] != DBNull.Value)
+                        cotizacion.codigoDespacho = Convert.ToInt32(row["CODIGO_DESPACHO"]);
                     break;
                 }
             }
