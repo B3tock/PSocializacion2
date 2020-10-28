@@ -52,7 +52,7 @@ namespace DespachosJaveriana
             }
             catch (Exception exc)
             {
-                //throw new Exception("Ocurió un error durante el proceso " + exc.Message);
+                lbMensaje.Text = exc.Message;
             }
         }
 
