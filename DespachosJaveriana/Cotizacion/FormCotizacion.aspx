@@ -71,10 +71,9 @@
                                 <td>
                                     <asp:DropDownList ID="ddlEstado" runat="server" Width="200px">
                                         <asp:ListItem></asp:ListItem>
-                                        <asp:ListItem>Activo</asp:ListItem>
-                                        <asp:ListItem>Inactivo</asp:ListItem>
-                                        <asp:ListItem>Proceso</asp:ListItem>
-                                        <asp:ListItem>Procesado</asp:ListItem>
+                                        <asp:ListItem>PENDIENTE</asp:ListItem>
+                                        <asp:ListItem>APROBADA</asp:ListItem>
+                                        <asp:ListItem>RECHAZADA</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlEstado" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </td>

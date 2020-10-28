@@ -45,6 +45,9 @@ namespace PublisherSubscriber.Controllers
                     requestPub.Codigo_proveedor= registros["CODIGO"].ToString();
                     var request = clienteHttp.PostAsync(url_consumo, requestPub, new JsonMediaTypeFormatter());
                     request.Wait();
+                    GestorCorreo gestor = new GestorCorreo();
+                    gestor.EnviarCorreo(registros["CORREO"].ToString(),"Cotización",
+                        "Cotización - Codigo Despacho: " + requestPub.Codigo_despacho + " - Volumen: " + requestPub.Volumen + " - Peso: " + requestPub.Peso + " - Direccion_origen: " + requestPub.Direccion_origen + " - Direccion_destino: " + requestPub.Direccion_destino);
                 }
             }
             da._connection.Close();

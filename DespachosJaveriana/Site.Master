@@ -41,7 +41,7 @@
         <div></div>
         <div class="wrapper">
             <div class="sideBar" id="sidebar">
-                <asp:Menu ID="MenuFactory" runat="server" CssClass="sideNav">
+                <asp:Menu ID="MenuFactory" runat="server" CssClass="sideNav" OnMenuItemClick="MenuFactory_MenuItemClick">
                     <StaticMenuStyle CssClass="sideNav" />
                     <Items>
                         <asp:MenuItem Text="Despacho" Value="Despacho" NavigateUrl="~/Despacho/FormDespacho.aspx">
@@ -51,6 +51,7 @@
                         <asp:MenuItem Text="Catálogo" Value="Catalogo" NavigateUrl="~/Catalogo/FormCatalogo.aspx">
                         </asp:MenuItem>
                         <asp:MenuItem Text="Estadísticas" Value="Estadísticas" NavigateUrl="~/Estadisticas/FormEstadisticas.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Salir" Value="Salir"></asp:MenuItem>
                     </Items>
                     <LevelMenuItemStyles>
                         <asp:MenuItemStyle CssClass="ItemMenu" />
@@ -62,7 +63,6 @@
                 </asp:Menu>
             </div>
         </div>
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -90,7 +90,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

@@ -9,8 +9,7 @@ using System.Text;
 namespace DespachosDataLayer.Access
 {
     public class CotizacionDataAccess : SQLDALAdapter
-    {
-        List<SqlParameter> listParameter = new List<SqlParameter>();
+    {       
         public int InsertarCotizacion(CotizacionEntity entidad)
         {
             List<SqlParameter> listParameter = new List<SqlParameter>();

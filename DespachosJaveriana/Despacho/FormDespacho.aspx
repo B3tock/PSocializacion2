@@ -1,6 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormDespacho.aspx.cs" Inherits="DespachosJaveriana.Despacho.FormDespacho" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table class="nav-justified">
+        <tr>
+            <td>
+                <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+                    <asp:View ID="View1" runat="server">
+                        <asp:GridView ID="gridDespachos" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo">
+                            <Columns>
+                                <asp:BoundField DataField="codigo" HeaderText="Código" />
+                                <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+                                <asp:BoundField DataField="direccionOrigen" HeaderText="Dirección Origen" />
+                                <asp:BoundField DataField="direccionDestino" HeaderText="Dirección Destino" />
+                                <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
+                                <asp:BoundField DataField="codigoCliente" Visible="False" />
+                                <asp:BoundField DataField="estado" HeaderText="Estado" />
+                                <asp:BoundField DataField="peso" HeaderText="Peso" />
+                                <asp:BoundField DataField="volumen" HeaderText="Volumen" />
+                                <asp:BoundField DataField="NombreCliente" HeaderText="Nombre Cliente" />
+                                <asp:BoundField DataField="Ruta" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                        <table class="nav-justified">
     <tr>
         <td>
             <asp:Label ID="Label1" runat="server" Text="DESPACHOS"></asp:Label>
@@ -8,10 +30,10 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>
+        <td style="height: 20px">
             <asp:Label ID="Label2" runat="server" Text="Fecha"></asp:Label>
         </td>
-        <td>&nbsp;</td>
+        <td style="height: 20px"></td>
     </tr>
     <tr>
         <td>
@@ -83,4 +105,10 @@
         <td>&nbsp;</td>
     </tr>
 </table>
+                    </asp:View>
+                </asp:MultiView>
+            </td>
+        </tr>
+    </table>
+
 </asp:Content>
