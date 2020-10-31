@@ -21,21 +21,10 @@ namespace DespachosJaveriana.Estadisticas
 
         void LoadData()
         {
-            List<EstadisticaEntity> dataList = estadisticaBusiness.ConsultarEstadisticas();
+            ClientesEntity cliente = (ClientesEntity)Session["User"];
+            List<EstadisticaEntity> dataList = estadisticaBusiness.ConsultarEstadisticas(cliente.codigo);
             chartEstadistica.DataSource = dataList;
-            chartEstadistica.DataBind();
-
-            /*string[] x = new string[dataList.Count];
-            float[] y = new float[dataList.Count];
-            for (int i = 0; i < dataList.Count; i++)
-            {
-                x[i] = dataList[i].Catalogo;
-                y[i] = dataList[i].Precio;
-            }
-            chartEstadistica.Series[0].Points.DataBindXY(x, y);
-            chartEstadistica.Series[0].ChartType = SeriesChartType.Pie;
-            //chartEstadistica.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
-            chartEstadistica.Legends[0].Enabled = true;*/
+            chartEstadistica.DataBind();            
         }
     }
 }

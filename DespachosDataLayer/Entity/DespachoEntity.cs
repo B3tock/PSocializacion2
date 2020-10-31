@@ -20,5 +20,6 @@ namespace DespachosDataLayer.Entity
         public string estadoCotizacion { get; internal set; }
         public float precio { get; internal set; }
         public string cotizacion { get; internal set; }
+        public string servicio { get; internal set; }
     }
 }

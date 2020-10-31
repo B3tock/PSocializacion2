@@ -25,7 +25,15 @@ namespace DespachosJaveriana
                         adminItem = menuItem;
                     }
                 }
+                menuItems.Remove(adminItem);
 
+                foreach (MenuItem menuItem in menuItems)
+                {
+                    if (menuItem.Text == "Estadísticas")
+                    {
+                        adminItem = menuItem;
+                    }
+                }
                 menuItems.Remove(adminItem);
             }
             else
@@ -37,7 +45,6 @@ namespace DespachosJaveriana
                         adminItem = menuItem;                        
                     }
                 }
-
                 menuItems.Remove(adminItem);
 
                 foreach (MenuItem menuItem in menuItems)
@@ -47,7 +54,6 @@ namespace DespachosJaveriana
                         adminItem = menuItem;                        
                     }
                 }
-
                 menuItems.Remove(adminItem);
             }
         }

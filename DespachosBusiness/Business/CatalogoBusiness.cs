@@ -30,5 +30,10 @@ namespace DespachosBusinessLayer.Business
             int result = catalogoDataAccess.ActualizarCatalogo(entidad);
             return result;
         }
+        public List<CatalogoServicioEntity> ConsultarCatalogosProveedor(int codigoProveedor)
+        {
+            List<CatalogoServicioEntity> result = catalogoDataAccess.ConsultarCatalogosProveedor(codigoProveedor);
+            return result;
+        }
     }
 }

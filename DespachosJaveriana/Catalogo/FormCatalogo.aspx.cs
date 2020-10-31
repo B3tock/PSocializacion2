@@ -16,7 +16,8 @@ namespace DespachosJaveriana.Catalogo
         {
             if (!IsPostBack)
             {
-                gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogos();
+                ClientesEntity proveedor = (ClientesEntity)Session["User"];
+                gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogosProveedor(proveedor.codigo);
                 gridCatalogos.DataBind();                
             }
         }
@@ -77,7 +78,8 @@ namespace DespachosJaveriana.Catalogo
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogos();
+            ClientesEntity proveedor = (ClientesEntity)Session["User"];
+            gridCatalogos.DataSource = catalogoBusiness.ConsultarCatalogosProveedor(proveedor.codigo);
             gridCatalogos.DataBind();
             LimpiarControles();            
             MultiView1.ActiveViewIndex = 0;

@@ -13,21 +13,20 @@ namespace ERP.Trigger
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("Datos del trigger:");
 
-            DespachoEntity despacho = new DespachoEntity();
+            string jSonString = System.Console.ReadLine();
 
-            despacho.codigoCliente = 1;
-            despacho.direccionDestino = "BOGOTA soacha";
-            despacho.direccionOrigen = "BARRANQUILLA soledad";
-            //despacho.Ruta 
+            DespachoEntity despacho = Newtonsoft.Json.JsonConvert.DeserializeObject<DespachoEntity>(jSonString);
+
+            System.Console.WriteLine("Deserializado");
+
             despacho.estado = "PENDIENTE"; // "OFERTADO" 
             despacho.fecha = DateTime.Now;
-            despacho.NombreCliente = "";
-            despacho.observaciones = "Camaron";
-            despacho.peso = 1;
-            despacho.volumen = 1;
 
             despacho.codigo = (new DespachosBusinessLayer.Business.DespachoBusiness()).InsertarDespacho(despacho);
+
+            System.Console.WriteLine("Despacho Creado:" + despacho.codigo );
 
             PublisherSubscriber.Controllers.PublishController controller = new PublisherSubscriber.Controllers.PublishController();
             PublisherSubscriber.Models.RequestPub request = new PublisherSubscriber.Models.RequestPub();
@@ -38,7 +37,10 @@ namespace ERP.Trigger
             request.Volumen = despacho.volumen.ToString();
 
             controller.Post(request);
-            
+
+            System.Console.WriteLine("Enviado");
+
+            System.Console.ReadLine();
         }
     }
 }
