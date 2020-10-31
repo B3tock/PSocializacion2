@@ -84,7 +84,8 @@ namespace DespachosJaveriana.Cotizacion
         {
             lblCodigo.Text = string.Empty;            
             txbPrecio.Text = string.Empty;
-            ddlCatalogo.SelectedIndex = 0;
+            if (ddlCatalogo.SelectedIndex > 0)
+                ddlCatalogo.SelectedIndex = 0;
             txbDescripcion.Text = string.Empty;
             ddlEstado.SelectedIndex = 0;
             if (ddlDespacho.SelectedIndex > 0)

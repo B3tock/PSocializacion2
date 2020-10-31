@@ -19,7 +19,7 @@
                                 <asp:CommandField ShowSelectButton="True" />
                             </Columns>
                             <EmptyDataTemplate>
-                                No existen datos
+                                <asp:Label ID="Label7" runat="server" Text="No existen datos"></asp:Label>
                             </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:View>

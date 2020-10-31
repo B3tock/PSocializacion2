@@ -5,7 +5,7 @@
             <td>
                 <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                     <asp:View ID="View1" runat="server">
-                        <asp:GridView ID="gridDespachos" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo">
+                        <asp:GridView ID="gridDespachos" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" Width="100px">
                             <Columns>
                                 <asp:BoundField DataField="codigo" HeaderText="Código" />
                                 <asp:BoundField DataField="fecha" HeaderText="Fecha" />
@@ -24,7 +24,7 @@
                                 <asp:BoundField DataField="estadoCotizacion" HeaderText="Estado Cot." />
                             </Columns>
                             <EmptyDataTemplate>
-                                No existen registros
+                                <asp:Label ID="Label7" runat="server" Text="No existen datos"></asp:Label>
                             </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:View>
