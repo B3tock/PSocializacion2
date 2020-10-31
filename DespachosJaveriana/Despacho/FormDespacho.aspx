@@ -23,6 +23,9 @@
                                 <asp:BoundField DataField="precio" HeaderText="Precio" />
                                 <asp:BoundField DataField="estadoCotizacion" HeaderText="Estado Cot." />
                             </Columns>
+                            <EmptyDataTemplate>
+                                No existen registros
+                            </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:View>
                     <asp:View ID="View2" runat="server">

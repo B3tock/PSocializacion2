@@ -18,6 +18,9 @@
                                 <asp:BoundField DataField="codigoProveedor" HeaderText="codigoProveedor" SortExpression="codigoProveedor" Visible="False" />
                                 <asp:CommandField ShowSelectButton="True" />
                             </Columns>
+                            <EmptyDataTemplate>
+                                No existen datos
+                            </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
